@@ -1,0 +1,111 @@
+<!--
+  ~ Copyright 2013 Benoît Prioux
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
+    <groupId>io.github.binout</groupId>
+    <artifactId>jiphoto-server</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <name>jiPhoto Server</name>
+    <packaging>war</packaging>
+
+    <inceptionYear>2013</inceptionYear>
+    <url>https://github.com/binout/jiphoto-server</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>binout</id>
+            <name>Benoit Prioux</name>
+            <email>benoit.prioux@gmail.com</email>
+            <url>http://javaonemorething.wordpress.com</url>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <ciManagement>
+        <system>buildhive</system>
+        <url>https://buildhive.cloudbees.com/job/binout/job/jiphoto-server/</url>
+    </ciManagement>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/binout/jiphoto-server</url>
+    </issueManagement>
+    <scm>
+        <url>https://github.com/binout/jiphoto-server</url>
+        <connection>scm:git:ssh://git@github.com/binout/jiphoto-server.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/binout/jiphoto-server.git</developerConnection>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+
+        <lib.jiphoto.version>0.1</lib.jiphoto.version>
+        <lib.javaee-api.version>7.0</lib.javaee-api.version>
+
+        <lib.junit.version>4.10</lib.junit.version>
+        <lib.fest-assert.version>1.4</lib.fest-assert.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.binout</groupId>
+            <artifactId>jiphoto</artifactId>
+            <version>${lib.jiphoto.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${lib.javaee-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${lib.junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-assert</artifactId>
+            <version>${lib.fest-assert.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

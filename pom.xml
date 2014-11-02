@@ -76,6 +76,9 @@
 
         <lib.junit.version>4.10</lib.junit.version>
         <lib.fest-assert.version>1.4</lib.fest-assert.version>
+        <lib.jaxrs-unit.version>1.1.0</lib.jaxrs-unit.version>
+        <lib.joor.version>0.9.4</lib.joor.version>
+        <lib.json.version>20140107</lib.json.version>
     </properties>
 
     <build>
@@ -136,6 +139,30 @@
             <groupId>org.easytesting</groupId>
             <artifactId>fest-assert</artifactId>
             <version>${lib.fest-assert.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.binout</groupId>
+            <artifactId>jaxrs-unit-api</artifactId>
+            <version>${lib.jaxrs-unit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.binout</groupId>
+            <artifactId>jaxrs-unit-resteasy</artifactId>
+            <version>${lib.jaxrs-unit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>joor</artifactId>
+            <version>${lib.joor.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${lib.json.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

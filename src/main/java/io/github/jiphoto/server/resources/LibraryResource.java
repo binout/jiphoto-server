@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.jiphoto.server.rest;
+package io.github.jiphoto.server.resources;
 
 import io.github.binout.jiphoto.Library;
 import io.github.binout.jiphoto.Photo;
@@ -26,9 +26,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-import static io.github.jiphoto.server.rest.ResponseFactory.*;
+import static io.github.jiphoto.server.resources.ResponseFactory.*;
 
-@Path("/")
+@Path("/library")
 @Produces("application/json;charset=UTF-8")
 public class LibraryResource {
 

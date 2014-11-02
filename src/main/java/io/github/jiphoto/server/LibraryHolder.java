@@ -46,7 +46,7 @@ public class LibraryHolder {
     }
 
     private static Optional<String> fromUserHome() {
-        String configFile = System.getProperty("user.home") + "/.iphotoserver/config.properties";
+        String configFile = System.getProperty("user.home") + "/.jiphoto-server/config.properties";
         final Properties properties = new Properties();
         try (InputStream is = new FileInputStream(configFile) ){
             properties.load(is);

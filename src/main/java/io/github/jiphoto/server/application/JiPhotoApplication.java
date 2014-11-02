@@ -13,11 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.jiphoto.server.rest;
+package io.github.jiphoto.server.application;
 
-import javax.ws.rs.ApplicationPath;
+import io.github.jiphoto.server.resources.AlbumResource;
+import io.github.jiphoto.server.resources.EventResource;
+import io.github.jiphoto.server.resources.LibraryResource;
+
 import javax.ws.rs.core.Application;
+import java.util.HashSet;
+import java.util.Set;
 
-@ApplicationPath("library")
-public class IPhotoApplication extends Application {
+public class JiPhotoApplication extends Application {
+
+    @Override
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> rrcs = new HashSet<>();
+        rrcs.add(AlbumResource.class);
+        rrcs.add(EventResource.class);
+        rrcs.add(LibraryResource.class);
+        return rrcs;
+    }
 }

@@ -27,7 +27,6 @@
     <artifactId>jiphoto-server</artifactId>
     <version>0.1-SNAPSHOT</version>
     <name>jiPhoto Server</name>
-    <packaging>war</packaging>
 
     <inceptionYear>2013</inceptionYear>
     <url>https://github.com/binout/jiphoto-server</url>
@@ -71,14 +70,39 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <lib.jiphoto.version>0.1</lib.jiphoto.version>
-        <lib.javaee-api.version>7.0</lib.javaee-api.version>
+        <lib.restlet.version>2.1.2</lib.restlet.version>
 
         <lib.junit.version>4.10</lib.junit.version>
         <lib.fest-assert.version>1.4</lib.fest-assert.version>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>io.github.jiphoto.server.application.JiPhotoServer</mainClass>
+                                </transformer>
+                            </transformers>
+                            <finalName>jiphoto-server</finalName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
@@ -86,12 +110,20 @@
             <artifactId>jiphoto</artifactId>
             <version>${lib.jiphoto.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>${lib.javaee-api.version}</version>
-            <scope>provided</scope>
+            <groupId>org.restlet.jse</groupId>
+            <artifactId>org.restlet</artifactId>
+            <version>${lib.restlet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.jee</groupId>
+            <artifactId>org.restlet.ext.jackson</artifactId>
+            <version>${lib.restlet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.jee</groupId>
+            <artifactId>org.restlet.ext.jaxrs</artifactId>
+            <version>${lib.restlet.version}</version>
         </dependency>
 
         <dependency>
@@ -108,4 +140,11 @@
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>maven-restlet</id>
+            <name>Public online Restlet repository</name>
+            <url>http://maven.restlet.org</url>
+        </repository>
+    </repositories>
 </project>

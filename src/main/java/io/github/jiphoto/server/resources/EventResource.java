@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.jiphoto.server.rest;
+package io.github.jiphoto.server.resources;
 
 import io.github.binout.jiphoto.Album;
 import io.github.binout.jiphoto.Library;
@@ -29,12 +29,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static io.github.jiphoto.server.rest.ResponseFactory.fromOptional;
-import static io.github.jiphoto.server.rest.ResponseFactory.image;
-import static io.github.jiphoto.server.rest.ResponseFactory.thumbnail;
+import static io.github.jiphoto.server.resources.ResponseFactory.fromOptional;
+import static io.github.jiphoto.server.resources.ResponseFactory.image;
+import static io.github.jiphoto.server.resources.ResponseFactory.thumbnail;
 import static javax.ws.rs.core.Response.status;
 
-@Path("events")
+@Path("/library/events")
 @Produces("application/json;charset=UTF-8")
 public class EventResource {
 
